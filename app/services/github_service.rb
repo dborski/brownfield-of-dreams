@@ -1,6 +1,6 @@
 class GithubService
 
-  def repos_by_user(github_token)
+  def get_repos(github_token)
     params = {sort: "created", direction: "desc"}
 
     get_json('user/repos', params, github_token)
