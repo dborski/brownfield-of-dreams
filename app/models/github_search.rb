@@ -4,6 +4,8 @@ class GithubSearch
     repos = service.get_repos(token).map do |data|
       GithubRepo.new(data)
     end
+    puts repos
+    repos
   end 
 
   def service
