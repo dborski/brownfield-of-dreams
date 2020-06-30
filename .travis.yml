@@ -16,4 +16,4 @@ deploy:
   app: pacific-sierra-45332
   run: rails db:migrate
   before_install:
-    - gem install bundler
+    - gem install bundler:2.1.4
