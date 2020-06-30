@@ -1,11 +1,9 @@
 class GithubSearch
 
   def repos(token)
-    repos = service.get_repos(token).map do |data|
-      puts data
+    service.get_repos(token).map do |data|
       GithubRepo.new(data)
     end
-    repos
   end 
 
   def service
