@@ -12,11 +12,11 @@ class User < ApplicationRecord
     search = GithubSearch.new
     repos = search.repos(github_token) if github_token
     return nil if !repos
+
     repos[0...count]
   end
-  
+
   def has_repos?
-    return true if user_repos
-    return false
-  end 
+    user_repos != nil
+  end
 end
