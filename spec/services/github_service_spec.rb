@@ -6,8 +6,9 @@ describe 'Github API' do
     github = GithubService.new
     repos = github.get_repos(token)
 
-
-    expect(repos.first[:name]).to eq("brownfield-of-dreams")
-    expect(repos.count).to eq(30)
+    
+    expect(repos).to be_a(Array)
+    expect(repos.first).to have_key(:name)
+    expect(repos.first).to have_key(:html_url)
   end
 end
