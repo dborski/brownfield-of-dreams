@@ -5,5 +5,4 @@ class GithubRepo
     @name = repo_info[:name]
     @url = repo_info[:html_url]
   end
-
-end 
+end
