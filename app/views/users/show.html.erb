@@ -8,14 +8,16 @@
     <li> <%= current_user.email%> </li>
   </ul>
   <section>
-    <h1>Github Followers</h1>
+    <% if current_user.github_token %>
+      <h1>Github Followers</h1>
       <ul class="followers">
-        <% @github_followers.each do |follower| %>
+        <% current_user.followers.each do |follower| %>
           <li class="follower" >
             <p><%= follower.name %></p>
           </li>
         <% end %>
       </ul>
+    <% end %>
   </section>
   <section>
     <h1>Bookmarked Segments</h1>
