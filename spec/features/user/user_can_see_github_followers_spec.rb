@@ -10,7 +10,7 @@ describe "User" do
 
     within ".followers" do
       expect(page).to have_css(".follower", count: 3)
-      within ".follower" do
+      within(first(".follower")) do
         expect(page).to have_css(".name")
       end
     end
