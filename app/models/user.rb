@@ -7,4 +7,16 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   enum role: { default: 0, admin: 1 }
   has_secure_password
+
+  def user_repos(count = 50)
+    search = GithubSearch.new
+    repos = search.repos(github_token) if github_token
+    return nil if !repos
+    repos[0...count]
+  end
+  
+  def has_repos?
+    return true if user_repos
+    return false
+  end 
 end
