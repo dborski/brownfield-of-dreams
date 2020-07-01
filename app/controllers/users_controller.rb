@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  def show; end
+  def show
+    @github_followers = GithubSearch.new.followers(current_user.github_token)
+  end
 
   def new
     @user = User.new
