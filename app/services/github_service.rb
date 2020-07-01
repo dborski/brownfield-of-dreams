@@ -4,7 +4,11 @@ class GithubService
     params = {sort: "created", direction: "desc"}
 
     get_json('user/repos', params, github_token)
-  end 
+  end
+
+  def get_followers(github_token)
+    get_json('user/followers', nil, github_token)
+  end
 
   private
 
