@@ -20,6 +20,14 @@
           </li>
         <% end %>
       </ul>
+      <h1>Following on Github</h1>
+      <ul class="following">
+        <% current_user.user_following(5).each do |followed| %>
+          <li class="followed" >
+            <p class="name"><%= followed.name %></p>
+          </li>
+        <% end %>
+      </ul>
       <h1>Github Repositories</h1>
       <% current_user.user_repos(5).each do |repo| %>
         <section class="repo">
