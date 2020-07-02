@@ -2,18 +2,18 @@ class GithubService
   def get_repos(github_token)
     params = { sort: 'created', direction: 'desc' }
 
-    get_json('user/repos', params, github_token)
+    get_json('user/repos', github_token, params)
   end
 
   def get_followers(github_token)
-    get_json('user/followers', nil, github_token)
+    get_json('user/followers', github_token, nil)
   end
 
   private
 
   def get_json(url, github_token, params = nil)
-    response = conn.get(url, params) do |repo|
-      repo.headers['Authorization'] = "token #{github_token}"
+    response = conn.get(url, params) do |request|
+      request.headers['Authorization'] = "token #{github_token}"
     end
     JSON.parse(response.body, symbolize_names: true)
   end

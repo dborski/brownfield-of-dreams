@@ -8,22 +8,18 @@
     <li> <%= current_user.email%> </li>
   </ul>
   <section>
-    <% if current_user.github_token %>
-      <h1>Github Followers</h1>
-      <ul class="followers">
-        <% current_user.followers.each do |follower| %>
-          <li class="follower" >
-            <p><%= follower.name %></p>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-  </section>
-  <section>
     <h1>Bookmarked Segments</h1>
   </section>
   <section class="github">
     <% if current_user.github_token %>
+      <h1>Github Followers</h1>
+      <ul class="followers">
+        <% current_user.user_followers(5).each do |follower| %>
+          <li class="follower" >
+            <p class="name"><%= follower.name %></p>
+          </li>
+        <% end %>
+      </ul>
       <h1>Github Repositories</h1>
       <% current_user.user_repos(5).each do |repo| %>
         <section class="repo">
