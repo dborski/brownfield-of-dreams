@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :videos, through: :user_videos
 
   validates :email, uniqueness: true, presence: true
-  validates :password, presence: true
   validates :first_name, presence: true
   enum role: { default: 0, admin: 1 }
   has_secure_password
@@ -11,24 +10,20 @@ class User < ApplicationRecord
   def user_repos(count = 50)
     search = GithubSearch.new
     repos = search.repos(github_token) if github_token
-    return nil if !repos
+    return nil unless repos
 
     repos[0...count]
   end
 
   def user_followers(count = 50)
-    if github_token
-      GithubSearch.new.followers(github_token)[0...count]
-    end
+    GithubSearch.new.followers(github_token)[0...count] if github_token
   end
 
   def user_following(count = 50)
-    if github_token
-      GithubSearch.new.following(github_token)[0...count]
-    end
+    GithubSearch.new.following(github_token)[0...count] if github_token
   end
 
-  def has_repos?
+  def repos?
     user_repos != nil
   end
 end
