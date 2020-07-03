@@ -17,7 +17,7 @@ describe 'Github API' do
     github = GithubService.new
     followers = github.get_followers(token)
 
-    expect(followers.first[:login]).to eq("alex-latham")
+    expect(followers.first).to have_key(:login)
     expect(followers.count).to eq(3)
   end
 end

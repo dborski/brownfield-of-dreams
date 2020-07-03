@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
-
+gem 'vcr'
 gem 'webpacker', '~> 3.5'
 
 gem 'yt', '~> 0.29.1'
