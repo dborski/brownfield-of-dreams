@@ -5,6 +5,18 @@ class GithubSearch
     end
   end
 
+  def followers(token)
+    service.get_followers(token).map do |data|
+      GithubUser.new(data)
+    end
+  end
+
+  def following(token)
+    service.get_following(token).map do |data|
+      GithubUser.new(data)
+    end
+  end
+
   def service
     GithubService.new
   end

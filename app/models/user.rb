@@ -16,6 +16,18 @@ class User < ApplicationRecord
     repos[0...count]
   end
 
+  def user_followers(count = 50)
+    if github_token
+      GithubSearch.new.followers(github_token)[0...count]
+    end
+  end
+
+  def user_following(count = 50)
+    if github_token
+      GithubSearch.new.following(github_token)[0...count]
+    end
+  end
+
   def has_repos?
     user_repos != nil
   end

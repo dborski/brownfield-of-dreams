@@ -11,4 +11,24 @@ describe 'Github Search' do
     expect(repos.first).to be_a(GithubRepo)
     expect(repos.first.name).to eq("brownfield-of-dreams")
   end
+
+  it 'creates github_user (follower) objects' do
+    search = GithubSearch.new
+    token = ENV['GITHUB_API_KEY']
+
+    followers = search.followers(token)
+
+    expect(followers.first).to be_a(GithubUser)
+    expect(followers.first.name).to eq('alex-latham')
+  end
+
+  it 'creates github_user (following) objects' do
+    search = GithubSearch.new
+    token = ENV['GITHUB_API_KEY']
+
+    following = search.following(token)
+
+    expect(following.first).to be_a(GithubUser)
+    expect(following.first.name).to eq('diesieben07')
+  end
 end
