@@ -9,7 +9,6 @@ describe 'Github Search' do
     repos = search.repos(token)
 
     expect(repos.first).to be_a(GithubRepo)
-    expect(repos.first.name).to eq("brownfield-of-dreams")
   end
 
   it 'creates github_user (follower) objects' do
@@ -19,7 +18,6 @@ describe 'Github Search' do
     followers = search.followers(token)
 
     expect(followers.first).to be_a(GithubUser)
-    expect(followers.first.name).to eq('alex-latham')
   end
 
   it 'creates github_user (following) objects' do
@@ -29,6 +27,5 @@ describe 'Github Search' do
     following = search.following(token)
 
     expect(following.first).to be_a(GithubUser)
-    expect(following.first.name).to eq('diesieben07')
   end
 end
