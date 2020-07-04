@@ -10,10 +10,13 @@ RSpec.describe Tutorial, type: :model do
     end
     it 'create_playlist_videos' do
       id = "PL4pGkk3QBW28n6QCBWcmE76Ro7ONEzlMG"
-      tutorial = create(:tutorial)
+      tutorial1 = create(:tutorial)
+      tutorial2 = create(:tutorial)
 
-      expect(tutorial.create_playlist_videos(id).count).to be_eq(50) 
-      expect(tutorial.create_playlist_videos(id).first).to be_a(Video) 
+      tutorial1.create_playlist_videos(id, tutorial2)
+
+      expect(tutorial1.create_playlist_videos(id, tutorial2).count).to eq(50) 
+      expect(tutorial2.videos.first).to be_a(Video) 
     end
   end
 end
