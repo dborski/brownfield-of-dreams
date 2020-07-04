@@ -22,9 +22,9 @@ RSpec.describe 'New tutorial', type: :feature do
       click_button 'Import Playlist'
 
       expect(current_path).to eq('/admin/dashboard')
-      expect(page).to have_content('Successfully created tutorial. View it here.')
+      expect(page).to have_content('Successfully created tutorial. View it here')
       
-      click_link 'View it here.'
+      click_link 'View it here'
 
       new_tutorial = Tutorial.last
 
