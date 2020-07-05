@@ -34,6 +34,8 @@
           <%= link_to "#{repo.name}", "#{repo.url}", class: "repo-link" %><br>
         </section>
       <% end %>
+    <% else %>
+      <%= link_to "Connect to Github", "/auth/github" %>
     <% end %>
   </section>
 </section>
