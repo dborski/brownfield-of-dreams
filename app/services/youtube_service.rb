@@ -12,7 +12,7 @@ class YoutubeService
   end
 
   def playlist_videos_info(id, next_page_token = nil)
-    params = { part: 'snippet,contentDetails', playlistId: id, pageToken: next_page_token, maxResults: 50 }
+    params = { part: 'snippet,contentDetails,status', playlistId: id, pageToken: next_page_token, maxResults: 50 }
 
     get_json('youtube/v3/playlistItems', params)
   end
