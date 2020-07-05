@@ -13,9 +13,8 @@ RSpec.describe Tutorial, type: :model do
       tutorial1 = create(:tutorial)
       tutorial2 = create(:tutorial)
 
-      tutorial1.create_playlist_videos(id, tutorial2)
 
-      expect(tutorial1.create_playlist_videos(id, tutorial2).count).to eq(50) 
+      expect(tutorial1.create_playlist_videos(id, tutorial2).count).to eq(131) 
       expect(tutorial2.videos.first).to be_a(Video) 
     end
   end
