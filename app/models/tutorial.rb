@@ -16,7 +16,7 @@ class Tutorial < ApplicationRecord
 
   def all_playlist_videos_json(playlist_id)
     playlist_videos_json = YoutubeService.new.playlist_videos_info(playlist_id)
-    
+
     next_page_token = playlist_videos_json[:nextPageToken]
     while next_page_token
       next_fifty_videos = YoutubeService.new.playlist_videos_info(playlist_id, next_page_token)
@@ -28,7 +28,7 @@ class Tutorial < ApplicationRecord
 
   def create_playlist_videos(playlist_id, new_tutorial)
     all_playlist_videos_json(playlist_id)[:items].flatten.each.with_index(1) do |vid, index|
-      if !vid[:snippet][:thumbnails].empty?
+      if vid[:status][:privacyStatus] == "public"
         new_tutorial.videos.create!(
           title:       vid[:snippet][:title],
           description: vid[:snippet][:description],
