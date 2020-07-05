@@ -14,7 +14,7 @@ class Tutorial < ApplicationRecord
       playlist_id: playlist_info[:id])
   end 
 
-  def create_playlist_videos(playlist_id, new_tutorial)
+  def all_playlist_videos_json(playlist_id)
     playlist_videos_json = YoutubeService.new.playlist_videos_info(playlist_id)
     
     next_page_token = playlist_videos_json[:nextPageToken]
@@ -22,9 +22,12 @@ class Tutorial < ApplicationRecord
       next_fifty_videos = YoutubeService.new.playlist_videos_info(playlist_id, next_page_token)
       playlist_videos_json[:items] << next_fifty_videos[:items]
       next_page_token = next_fifty_videos[:nextPageToken]
-    end 
+    end
+    playlist_videos_json
+  end 
 
-    playlist_videos_json[:items].flatten.each.with_index(1) do |vid, index|
+  def create_playlist_videos(playlist_id, new_tutorial)
+    all_playlist_videos_json(playlist_id)[:items].flatten.each.with_index(1) do |vid, index|
       if !vid[:snippet][:thumbnails].empty?
         new_tutorial.videos.create!(
           title:       vid[:snippet][:title],
