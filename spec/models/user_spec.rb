@@ -32,16 +32,16 @@ RSpec.describe User, type: :model do
       user2 = create(:user, github_token: nil)
 
       expect(user1.user_repos(5).count).to eq(5)
-      expect(user1.user_repos(5).first).to be_a(GithubRepo) 
+      expect(user1.user_repos(5).first).to be_a(GithubRepo)
 
       expect(user2.user_repos(5)).to eq(nil)
     end
-    it 'has_repos?' do
+    it 'repos?' do
       user1 = create(:user)
       user2 = create(:user, github_token: nil)
 
-      expect(user1.has_repos?).to eq(true)
-      expect(user2.has_repos?).to eq(false)
+      expect(user1.repos?).to eq(true)
+      expect(user2.repos?).to eq(false)
     end
   end
 end
