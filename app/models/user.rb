@@ -30,5 +30,5 @@ class User < ApplicationRecord
 
   def unique_tutorials
     tutorials.distinct
-  end 
+  end
 end
