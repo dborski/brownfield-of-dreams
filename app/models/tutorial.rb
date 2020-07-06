@@ -40,4 +40,9 @@ class Tutorial < ApplicationRecord
       end
     end
   end
+
+  def sorted_videos(count)
+    videos.order('videos.position asc')
+          .limit(count)
+  end 
 end
