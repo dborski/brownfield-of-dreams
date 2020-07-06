@@ -5,6 +5,21 @@ class YoutubeService
     get_json('youtube/v3/videos', params)
   end
 
+  def playlist_info(id)
+    params = { part: 'snippet,contentDetails', id: id }
+
+    get_json('youtube/v3/playlists', params)
+  end
+
+  def playlist_videos_info(id, next_page_token = nil)
+    params = { part: 'snippet,contentDetails,status',
+               playlistId: id,
+               pageToken: next_page_token,
+               maxResults: 50 }
+
+    get_json('youtube/v3/playlistItems', params)
+  end
+
   private
 
   def get_json(url, params)

@@ -1,5 +1,7 @@
 <h2>New Tutorial</h2>
+
 <%= form_for [:admin, @tutorial] do |f| %>
+  <% if params[:from_playlists] == nil %>
   <%= f.label :title %>
   <%= f.text_field :title, class: "block col-4 field" %>
   <%= f.label :description %>
@@ -12,7 +14,12 @@
   <%= f.fields_for :videos do |builder| %>
     <%= f.label :youtube_url %>
     <%= f.text_field :video_id, class: "block col-4 field" %>
-  <% end %>
-
+    <% end %>
+    <%= link_to "Import YouTube Playlist", '/admin/tutorials/new?from_playlists=true' %><br>
   <%= f.submit "Save", class: "mt2 btn btn-primary mb1 bg-teal"  %>
+  <% else %>
+    <%= f.label :playlist_id, "Playlist ID:" %>
+    <%= f.text_field :playlist_id, class: "block col-4 field" %>
+    <%= f.submit "Import Playlist", class: "mt2 btn btn-primary mb1 bg-teal"  %>
+  <% end %>
 <% end %>
