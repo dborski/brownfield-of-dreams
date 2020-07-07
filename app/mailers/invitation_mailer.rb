@@ -7,12 +7,6 @@ class InvitationMailer < ApplicationMailer
     @inviter_name = inviter_info[:login]
     @app_name = info[:app]
 
-    # binding.pry
-    
-    if invitee_info[:email]
-      mail(to: invitee_info[:email], subject: "#{@app_name} Invitation")
-    else
-      "No email"
-    end 
+    mail(to: invitee_info[:email], subject: "#{@app_name} Invitation") if invitee_info[:email]
   end
 end
