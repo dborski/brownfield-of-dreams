@@ -25,7 +25,7 @@ describe 'Tutorials API' do
     expect(parsed.last[:videos].last[:id]).to eq(video4.id)
   end
 
-  it 'sends a single tutorial' do
+  xit 'sends a single tutorial' do
     tutorial1 = create(:tutorial)
     tutorial2 = create(:tutorial)
 
