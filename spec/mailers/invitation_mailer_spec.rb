@@ -3,10 +3,10 @@ require "rails_helper"
 RSpec.describe InvitationMailer, type: :mailer do
   describe "instruction" do
     it 'renders the subject and to field' do
-      user = create(:user, github_token: "ef13805069edcaca737c7aa6e66442ee8f96cf99")
-      email_info = { user_token: user.github_token,
-        app: "Brownfield of Dreams",
-      }
+      email_info = { user_token: ENV['DEREK_GITHUB_TOKEN'],
+                     app: "Brownfield of Dreams",
+                   }
+
       github_handle = "dborski"
       
       InvitationMailer.invite(email_info, github_handle).deliver_now 
