@@ -7,6 +7,10 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
+  <section class="email-invite">
+    <h1>E-mail Invite</h1>
+    <%= link_to "Send an Invite", "/invite" %>
+  </section>
   <section class="bookmarked">
     <h1>Bookmarked Segments</h1>
     <% current_user.unique_tutorials.each do |tutorial| %>
