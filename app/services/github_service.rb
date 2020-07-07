@@ -13,6 +13,14 @@ class GithubService
     get_json('user/following', github_token, nil)
   end
 
+  def get_user_info(handle, github_token)
+    get_json("users/#{handle}", github_token, nil)
+  end
+
+  def get_authenticated_user_info(github_token)
+    get_json('user', github_token, nil)
+  end
+
   private
 
   def get_json(url, github_token, params = nil)
