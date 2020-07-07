@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :user_videos, dependent: :destroy
   has_many :videos, through: :user_videos
+  has_many :tutorials, through: :videos
 
   validates :email, uniqueness: true, presence: true
   validates :first_name, presence: true
@@ -25,5 +26,9 @@ class User < ApplicationRecord
 
   def repos?
     user_repos != nil
+  end
+
+  def unique_tutorials
+    tutorials.distinct
   end
 end

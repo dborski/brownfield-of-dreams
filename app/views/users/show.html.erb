@@ -7,8 +7,18 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
-  <section>
+  <section class="bookmarked">
     <h1>Bookmarked Segments</h1>
+    <% current_user.unique_tutorials.each do |tutorial| %>
+      <section class="tutorial">
+        <h4>Tutorial: <%= tutorial.title %></h4>
+        <% tutorial.sorted_videos(5).each do |video| %>
+          <section class="tutorial-video">
+            <p><%= link_to video.title, tutorial_path(tutorial, video_id: video.id), class: "show-link", id: video.position %></p>
+          </section>
+        <% end %>
+      </section>
+    <% end %>
   </section>
   <section class="github">
     <% if current_user.github_token %>
@@ -29,11 +39,13 @@
         <% end %>
       </ul>
       <h1>Github Repositories</h1>
-      <% current_user.user_repos(5).each do |repo| %>
-        <section class="repo">
+      <ul class="repos">
+        <% current_user.user_repos(5).each do |repo| %>
+        <li class="repo">
           <%= link_to "#{repo.name}", "#{repo.url}", class: "repo-link" %><br>
-        </section>
-      <% end %>
+        </li>
+        <% end %>
+      </ul>
     <% else %>
       <%= link_to "Connect to Github", "/auth/github" %>
     <% end %>
