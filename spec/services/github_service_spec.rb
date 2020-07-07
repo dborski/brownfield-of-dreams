@@ -20,4 +20,23 @@ describe 'Github API' do
     expect(followers.first).to have_key(:login)
     expect(followers.count).to eq(3)
   end
+
+  it "get github user info" do
+    handle = "dborski"
+    token = ENV['GITHUB_API_KEY']
+    github = GithubService.new
+    user_info = github.get_user_info(handle, token)
+
+    expect(user_info).to have_key(:login)
+    expect(user_info).to have_key(:email)
+  end
+
+  it "get github user info" do
+    token = ENV['GITHUB_API_KEY']
+    github = GithubService.new
+    user_info = github.get_authenticated_user_info(token)
+
+    expect(user_info).to have_key(:login)
+    expect(user_info).to have_key(:email)
+  end
 end
