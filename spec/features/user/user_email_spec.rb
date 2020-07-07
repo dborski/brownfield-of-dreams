@@ -23,7 +23,7 @@ RSpec.describe 'user dashboard show page', type: :feature do
       expect(page).to have_content("Successfully sent invite!")
     end
 
-    xit "Send e-mail fails if github user does not have an e-mail address" do
+    it "Send e-mail fails if github user does not have an e-mail address" do
       click_link "Send an Invite"
       
       expect(current_path).to eq(invite_path)
@@ -37,21 +37,4 @@ RSpec.describe 'user dashboard show page', type: :feature do
   end 
 end 
 
-# As a registered user
-# When I visit /dashboard
-# And I click "Send an Invite"
-# Then I should be on /invite
-
-# And when I fill in "Github Handle" with <A VALID GITHUB HANDLE>
-# And I click on "Send Invite"
-# Then I should be on /dashboard
-# And I should see a message that says "Successfully sent invite!" (if the user has an email
-# address associated with their github account)
-# Or I should see a message that says "The Github user you selected 
-# doesn't have an email address associated with their account."
-
-# Hello <INVITEE_NAME_AS_IT_APPEARS_ON_GITHUB>,
-
-# <INVITER_NAME_AS_IT_APPEARS_ON_GITHUB> has invited you to join <YOUR_APP_NAME>. 
-# You can create an account <here (should be a link to /signup)>.
 
