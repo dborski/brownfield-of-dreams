@@ -40,7 +40,7 @@
       <h1>Following on Github</h1>
       <ul class="following">
         <% current_user.user_following(5).each do |followed| %>
-          <li class="followed" >
+          <li class="followed followed-<%= followed.name %>" >
             <p class="name"><%= followed.name %></p>
           </li>
         <% end %>
