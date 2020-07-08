@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/user/following
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - token <GITHUB_API_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 08 Jul 2020 03:03:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4938'
+      X-Ratelimit-Reset:
+      - '1594179091'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"0621bac8fc4a821215316dd254b2ad90"
+      X-Oauth-Scopes:
+      - repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - E3A5:1B8D:37DF009:5F62657:5F05377B
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"login":"diesieben07","id":1915984,"node_id":"MDQ6VXNlcjE5MTU5ODQ=","avatar_url":"https://avatars0.githubusercontent.com/u/1915984?v=4","gravatar_id":"","url":"https://api.github.com/users/diesieben07","html_url":"https://github.com/diesieben07","followers_url":"https://api.github.com/users/diesieben07/followers","following_url":"https://api.github.com/users/diesieben07/following{/other_user}","gists_url":"https://api.github.com/users/diesieben07/gists{/gist_id}","starred_url":"https://api.github.com/users/diesieben07/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/diesieben07/subscriptions","organizations_url":"https://api.github.com/users/diesieben07/orgs","repos_url":"https://api.github.com/users/diesieben07/repos","events_url":"https://api.github.com/users/diesieben07/events{/privacy}","received_events_url":"https://api.github.com/users/diesieben07/received_events","type":"User","site_admin":false}]'
+  recorded_at: Wed, 08 Jul 2020 03:03:23 GMT
+recorded_with: VCR 6.0.0
