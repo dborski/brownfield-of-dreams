@@ -11,6 +11,8 @@ RSpec.describe User, type: :model do
     it { should have_many(:user_videos).dependent(:destroy)}
     it { should have_many(:videos).through(:user_videos)}
     it { should have_many(:tutorials).through(:videos)}
+    it { should have_many(:friendships) }
+    it { should have_many(:friends).through(:friendships) }
   end
 
   describe 'roles' do
@@ -62,7 +64,7 @@ RSpec.describe User, type: :model do
       UserVideo.create!(user: user, video: video3)
       UserVideo.create!(user: user, video: video4)
 
-      expect(user.unique_tutorials).to eq([tutorial1, tutorial2, tutorial3]) 
+      expect(user.unique_tutorials).to eq([tutorial1, tutorial2, tutorial3])
     end
   end
 end
