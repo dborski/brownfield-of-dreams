@@ -33,4 +33,12 @@ class User < ApplicationRecord
   def unique_tutorials
     tutorials.distinct
   end
+
+  def self.is_user?(github_user)
+    User.exists?(github_username: github_user.name)
+  end
+
+  def is_friend?(github_user)
+
+  end
 end
