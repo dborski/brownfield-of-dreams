@@ -29,7 +29,7 @@ RSpec.describe User, type: :model do
     end
   end
   describe 'instance_methods' do
-    it 'user_repos' do
+    it 'user_repos', :vcr do
       user1 = create(:user)
       user2 = create(:user, github_token: nil)
 
@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
 
       expect(user2.user_repos(5)).to eq(nil)
     end
-    it 'repos?' do
+    it 'repos?', :vcr do
       user1 = create(:user)
       user2 = create(:user, github_token: nil)
 
