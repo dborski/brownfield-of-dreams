@@ -6,9 +6,7 @@ class GithubService
   end
 
   def get_followers(github_token)
-    json = get_json('user/followers', github_token, nil)
-    puts json
-    json
+    get_json('user/followers', github_token, nil)
   end
 
   def get_following(github_token)
