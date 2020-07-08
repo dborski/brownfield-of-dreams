@@ -11,14 +11,17 @@ class Admin::TutorialsController < Admin::BaseController
         tutorial = Tutorial.new.create_playlist(playlist_id)
         Tutorial.new.create_playlist_videos(playlist_id, tutorial)
         flash[:success] = "Successfully created tutorial. #{view_context.link_to('View it here', tutorial_path(tutorial))}"
+        redirect_to admin_dashboard_path
       else
         tutorial = Tutorial.create(tutorial_params)
         flash[:success] = "Successfully created tutorial."
+        redirect_to tutorial_path(tutorial)
       end
-      redirect_to admin_dashboard_path
     rescue StandardError
+
       flash[:error] = "There was an issue creating the tutorial."
       redirect_to tutorial_new_path
+
     end
   end
 
