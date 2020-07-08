@@ -31,9 +31,9 @@
         <% current_user.user_followers(5).each do |follower| %>
           <li class="follower follower-<%= follower.name %>">
             <p class="name"><%= follower.name %></p>
-            <!-- if user_in_system?(follower)
-              link_to 'Add as Friend', "somelink?github_username=#{follower.name}" %>
-            end -->
+            <% if User.is_user?(follower) %>
+              <%= button_to 'Add as Friend', "somelink?github_username=#{follower.name}", class: "btn btn-primary mb1 bg-teal" %>
+            <% end %>
           </li>
         <% end %>
       </ul>
@@ -42,6 +42,9 @@
         <% current_user.user_following(5).each do |followed| %>
           <li class="followed followed-<%= followed.name %>" >
             <p class="name"><%= followed.name %></p>
+            <% if User.is_user?(followed) %>
+              <%= button_to 'Add as Friend', "somelink?github_username=#{followed.name}", class: "btn btn-primary mb1 bg-teal" %>
+            <% end %>
           </li>
         <% end %>
       </ul>
