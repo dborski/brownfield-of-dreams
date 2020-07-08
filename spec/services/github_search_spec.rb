@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Github Search', :vcr do
   it 'creates repo objects' do
     search = GithubSearch.new
-    token = ENV['GITHUB_API_KEY']
+    token = ENV['GITHUB_TOKEN1']
 
 
     repos = search.repos(token)
@@ -13,7 +13,7 @@ describe 'Github Search', :vcr do
 
   it 'creates github_user (follower) objects', :vcr do
     search = GithubSearch.new
-    token = ENV['GITHUB_API_KEY']
+    token = ENV['GITHUB_TOKEN1']
 
     followers = search.followers(token)
 
@@ -22,7 +22,7 @@ describe 'Github Search', :vcr do
 
   it 'creates github_user (following) objects', :vcr do
     search = GithubSearch.new
-    token = ENV['GITHUB_API_KEY']
+    token = ENV['GITHUB_TOKEN1']
 
     following = search.following(token)
 

@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - token <GITHUB_API_KEY>
+      - token <GITHUB_TOKEN1>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -83,7 +83,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - token <GITHUB_API_KEY>
+      - token <GITHUB_TOKEN1>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -156,7 +156,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - token <GITHUB_API_KEY>
+      - token <GITHUB_TOKEN1>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -242,7 +242,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - token <GITHUB_API_KEY>
+      - token <GITHUB_TOKEN1>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -310,7 +310,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - token <GITHUB_API_KEY>
+      - token <GITHUB_TOKEN1>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -388,7 +388,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - token <GITHUB_API_KEY>
+      - token <GITHUB_TOKEN1>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -461,7 +461,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - token <GITHUB_API_KEY>
+      - token <GITHUB_TOKEN1>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -534,7 +534,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - token <GITHUB_API_KEY>
+      - token <GITHUB_TOKEN1>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
