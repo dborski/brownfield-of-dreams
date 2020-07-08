@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', :to => 'sessions#update'
 
   get '/invite', to: "email_invitation#new"
-  get '/activate', to: "activation#activate"
+  get '/activate', to: "user#update"
 
   resources :invite, only: [:new, :create], controller: "email_invitation"
 end
