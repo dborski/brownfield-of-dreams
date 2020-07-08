@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "User" do
-  it "User can see followers while logged in" do
+  it "User can see followers while logged in", :vcr do
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
         'provider' => 'github',

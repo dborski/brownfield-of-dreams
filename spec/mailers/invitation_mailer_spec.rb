@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe InvitationMailer, type: :mailer do
   describe "instruction" do
-    it 'renders the subject and to field' do
+    it 'renders the subject and to field', :vcr do
       email_info = { user_token: ENV['GITHUB_TOKEN'],
                      app: "Brownfield of Dreams",
                    }

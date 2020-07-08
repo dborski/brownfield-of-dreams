@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "User" do
-  it "User can see followers while logged in" do
+  it "User can see followers while logged in", :vcr do
     user = create(:user)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

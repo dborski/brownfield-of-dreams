@@ -6,21 +6,21 @@ RSpec.describe Tutorial, type: :model do
   end
   
   describe 'instance_methods' do
-    it 'create_playlists' do
+    it 'create_playlists', :vcr do
       id = "PL4pGkk3QBW28n6QCBWcmE76Ro7ONEzlMG"
       tutorial = create(:tutorial)
 
       expect(tutorial.create_playlist(id)).to be_a(Tutorial)
     end
 
-    it 'create_playlist_videos_json' do
+    it 'create_playlist_videos_json', :vcr do
       id = "PL4pGkk3QBW28n6QCBWcmE76Ro7ONEzlMG"
       tutorial = create(:tutorial)
       tutorial2 = create(:tutorial)
 
       expect(tutorial.all_playlist_videos_json(id)).to be_a(Hash)
     end
-    it 'create_playlist_videos' do
+    it 'create_playlist_videos', :vcr do
       id = "PL4pGkk3QBW28n6QCBWcmE76Ro7ONEzlMG"
       tutorial1 = create(:tutorial)
       tutorial2 = create(:tutorial)
