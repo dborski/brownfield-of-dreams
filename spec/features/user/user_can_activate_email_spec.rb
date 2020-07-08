@@ -1,7 +1,11 @@
 require "rails_helper"
 
-describe "A registered user" do
-  it "can activate their email account" do
+feature "A registered user" do
+  before :each do
+    clear_emails
+  end
+
+  scenario "can activate their email account" do
     visit '/'
 
     click_on 'Register'
@@ -19,12 +23,11 @@ describe "A registered user" do
     expect(page).to have_content("John's Dashboard")
     expect(page).to have_content('This account has not yet been activated. Please check your email.')
 
-    activation_email = ActionMailer::Base.deliveries.last
-    email = Capybara::Node::Simple.new(get_message_part(activation_email, /html/))
+    open_email('johndoe@example.com')
 
-    expect(email).to have_link('Visit here to activate your account.')
+    expect(current_email).to have_link('Visit here to activate your account.')
 
-    email.click_on 'Visit here to activate your account.'
+    current_email.click_link('Visit here to activate your account.')
 
     expect(current_path).to eq('/dashboard')
 
