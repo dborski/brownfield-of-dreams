@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save
       session[:user_id] = user.id
+      AccountConfirmationMailer.confirm_account(user).deliver_now
       redirect_to dashboard_path
     else
       flash[:error] = 'Username already exists'
