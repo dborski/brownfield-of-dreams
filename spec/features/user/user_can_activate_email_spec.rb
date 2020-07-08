@@ -29,7 +29,7 @@ feature "A registered user" do
 
     current_email.click_link('Visit here to activate your account.')
 
-    expect(current_path).to eq('/dashboard')
+    expect(current_path).to eq('/')
 
     within '.flash-message' do
       expect(page).to have_content('Thank you! Your account is now activated.')
