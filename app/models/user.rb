@@ -39,6 +39,10 @@ class User < ApplicationRecord
   end
 
   def is_friend?(github_user)
+    friends.exists?(github_id: github_user.id)
+  end
 
+  def friend_list
+    friends
   end
 end
