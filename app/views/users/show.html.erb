@@ -28,7 +28,7 @@
     <h1>Friends</h1>
     <% current_user.friend_list.each do |friend| %>
       <section class="friend friend-<%= friend.id %>">
-        <h4>Tutorial: <%= friend.first_name %> <%= friend.last_name %></h4>
+        <h4><%= friend.first_name %> <%= friend.last_name %></h4>
       </section>
     <% end %>
   </section>

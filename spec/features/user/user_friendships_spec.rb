@@ -35,10 +35,10 @@ describe "As a registered user with a github token", :vcr do
       expect(page).to_not have_button('Add as Friend')
     end
 
+    require "pry"; binding.pry
 
-    within ".friend-#{@user2.id}" do
-      expect(page).to have_content("#{@user2.first_name} #{@user2.last_name}")
-    end
+    expect(page).to have_content("#{@user2.first_name} #{@user2.last_name}")
+
   end
 end
 
