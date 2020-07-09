@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Youtube API' do
-  it 'gets playlist info' do
+  it 'gets playlist info', :vcr do
     id = "PL4pGkk3QBW28n6QCBWcmE76Ro7ONEzlMG"
     youtube = YoutubeService.new
     playlist_json = youtube.playlist_info(id)
@@ -13,7 +13,7 @@ describe 'Youtube API' do
     expect(playlist_info).to have_key(:id)
   end
 
-  it 'gets playlist videos info' do
+  it 'gets playlist videos info', :vcr do
     id = "PL4pGkk3QBW28n6QCBWcmE76Ro7ONEzlMG"
     youtube = YoutubeService.new
     playlist_videos_json = youtube.playlist_videos_info(id)

@@ -22,6 +22,7 @@ gem 'jquery'
 gem 'figaro'
 gem 'factory_bot_rails'
 gem 'faker'
+gem 'sendgrid-ruby'
 gem 'active_model_serializers'
 gem 'omniauth-google-oauth2'
 gem 'will_paginate'
@@ -42,6 +43,11 @@ group :development, :test do
   gem 'simplecov'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do

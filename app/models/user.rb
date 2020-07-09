@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :user_videos, dependent: :destroy
   has_many :videos, through: :user_videos
+  has_many :tutorials, through: :videos
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
 
   validates :email, uniqueness: true, presence: true
   validates :first_name, presence: true
@@ -25,5 +28,21 @@ class User < ApplicationRecord
 
   def repos?
     user_repos != nil
+  end
+
+  def unique_tutorials
+    tutorials.distinct
+  end
+
+  def self.is_user?(github_user)
+    User.exists?(github_username: github_user.name)
+  end
+
+  def is_friend?(github_user)
+    friends.exists?(github_id: github_user.id)
+  end
+
+  def friend_list
+    friends
   end
 end

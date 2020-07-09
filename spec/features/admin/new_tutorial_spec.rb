@@ -11,7 +11,7 @@ RSpec.describe 'New tutorial', type: :feature do
       visit '/admin/tutorials/new'
     end
 
-    it "can create new tutorial by entering youtube playlist ID into form" do
+    it "can create new tutorial by entering youtube playlist ID into form", :vcr do
       click_link "Import YouTube Playlist"
       
       expect(current_path).to eq('/admin/tutorials/new')

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe 'Github API' do
-  it 'sends repos for a single user' do
-    token = ENV['GITHUB_API_KEY']
+  it 'sends repos for a single user', :vcr do
+    token = ENV['GITHUB_TOKEN1']
     github = GithubService.new
     repos = github.get_repos(token)
 
@@ -12,12 +12,31 @@ describe 'Github API' do
     expect(repos.first).to have_key(:html_url)
   end
 
-  it "sends followers for a single user" do
-    token = ENV['GITHUB_API_KEY']
+  it "sends followers for a single user", :vcr do
+    token = ENV['GITHUB_TOKEN1']
     github = GithubService.new
     followers = github.get_followers(token)
 
     expect(followers.first).to have_key(:login)
     expect(followers.count).to eq(3)
+  end
+
+  it 'gets user info', :vcr do 
+    handle = "dborski"
+    token = ENV['GITHUB_TOKEN1']
+    github = GithubService.new
+    user_info = github.get_user_info(handle, token)
+
+    expect(user_info).to have_key(:login)
+    expect(user_info).to have_key(:email)
+  end
+
+  it "get github user info", :vcr do
+    token = ENV['GITHUB_TOKEN1']
+    github = GithubService.new
+    user_info = github.get_authenticated_user_info(token)
+
+    expect(user_info).to have_key(:login)
+    expect(user_info).to have_key(:email)
   end
 end

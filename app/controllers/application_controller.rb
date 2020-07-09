@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
     Tutorial.find(id).title
   end
 
+
   def four_oh_four
     raise ActionController::RoutingError, 'Not Found'
   end

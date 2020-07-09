@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   get '/about', to: 'about#show'
   get '/get_started', to: 'get_started#show'
 
-  resources :users, only: [:new, :create, :update, :edit]
+  resources :users, only: [:new, :create, :update, :edit] do
+    resources :friendships, only: [:create]
+  end
 
   resources :tutorials, only: [:show, :index] do
     resources :videos, only: [:show, :index]
@@ -40,4 +42,8 @@ Rails.application.routes.draw do
 
   resources :user_videos, only:[:create, :destroy]
   get '/auth/:provider/callback', :to => 'sessions#update'
+
+  get '/invite', to: "email_invitation#new"
+
+  resources :invite, only: [:new, :create], controller: "email_invitation"
 end
