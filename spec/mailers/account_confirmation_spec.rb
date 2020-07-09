@@ -14,8 +14,7 @@ RSpec.describe AccountConfirmationMailer, type: :mailer do
       activation_email = ActionMailer::Base.deliveries.last
       email = Capybara::Node::Simple.new(get_message_part(activation_email, /html/))
 
-      url = url_for( controller:'users', action:'update' )
-      expect(email).to have_link('Visit here to activate your account.', href: url)
+      expect(email).to have_link('Visit here to activate your account.')
     end
   end
 end
