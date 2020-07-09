@@ -5,7 +5,12 @@ describe "User" do
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
         'provider' => 'github',
-        'credentials' => {'token' => ENV['GITHUB_API_KEY']}
+        'credentials' => {'token' => ENV['GITHUB_TOKEN1']},
+        'extra' => {
+          'raw_info' => {
+            'login' => 'johndoe'
+          }
+        }
       })
 
     user = create(:user)

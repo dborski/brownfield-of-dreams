@@ -17,6 +17,8 @@ class SessionsController < ApplicationController
   def update
     if params[:provider] == 'github'
       current_user.github_token = auth_hash['credentials']['token']
+      current_user.github_username = auth_hash['extra']['raw_info']['login']
+      current_user.github_id = auth_hash['extra']['raw_info']['id']
       current_user.save
     end
     redirect_to dashboard_path
