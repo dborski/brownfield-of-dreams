@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/user/followers
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - token <GITHUB_TOKEN1>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 08 Jul 2020 03:03:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4939'
+      X-Ratelimit-Reset:
+      - '1594179090'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"1f5f7b9b5d6f145622ae339f6648e2e3"
+      X-Oauth-Scopes:
+      - repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - E3A4:3B5B:717E3E:148F26D:5F05377A
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"login":"alex-latham","id":56228986,"node_id":"MDQ6VXNlcjU2MjI4OTg2","avatar_url":"https://avatars3.githubusercontent.com/u/56228986?v=4","gravatar_id":"","url":"https://api.github.com/users/alex-latham","html_url":"https://github.com/alex-latham","followers_url":"https://api.github.com/users/alex-latham/followers","following_url":"https://api.github.com/users/alex-latham/following{/other_user}","gists_url":"https://api.github.com/users/alex-latham/gists{/gist_id}","starred_url":"https://api.github.com/users/alex-latham/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/alex-latham/subscriptions","organizations_url":"https://api.github.com/users/alex-latham/orgs","repos_url":"https://api.github.com/users/alex-latham/repos","events_url":"https://api.github.com/users/alex-latham/events{/privacy}","received_events_url":"https://api.github.com/users/alex-latham/received_events","type":"User","site_admin":false},{"login":"DavidTTran","id":57076945,"node_id":"MDQ6VXNlcjU3MDc2OTQ1","avatar_url":"https://avatars0.githubusercontent.com/u/57076945?v=4","gravatar_id":"","url":"https://api.github.com/users/DavidTTran","html_url":"https://github.com/DavidTTran","followers_url":"https://api.github.com/users/DavidTTran/followers","following_url":"https://api.github.com/users/DavidTTran/following{/other_user}","gists_url":"https://api.github.com/users/DavidTTran/gists{/gist_id}","starred_url":"https://api.github.com/users/DavidTTran/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/DavidTTran/subscriptions","organizations_url":"https://api.github.com/users/DavidTTran/orgs","repos_url":"https://api.github.com/users/DavidTTran/repos","events_url":"https://api.github.com/users/DavidTTran/events{/privacy}","received_events_url":"https://api.github.com/users/DavidTTran/received_events","type":"User","site_admin":false},{"login":"zachholcomb","id":58053916,"node_id":"MDQ6VXNlcjU4MDUzOTE2","avatar_url":"https://avatars3.githubusercontent.com/u/58053916?v=4","gravatar_id":"","url":"https://api.github.com/users/zachholcomb","html_url":"https://github.com/zachholcomb","followers_url":"https://api.github.com/users/zachholcomb/followers","following_url":"https://api.github.com/users/zachholcomb/following{/other_user}","gists_url":"https://api.github.com/users/zachholcomb/gists{/gist_id}","starred_url":"https://api.github.com/users/zachholcomb/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/zachholcomb/subscriptions","organizations_url":"https://api.github.com/users/zachholcomb/orgs","repos_url":"https://api.github.com/users/zachholcomb/repos","events_url":"https://api.github.com/users/zachholcomb/events{/privacy}","received_events_url":"https://api.github.com/users/zachholcomb/received_events","type":"User","site_admin":false}]'
+  recorded_at: Wed, 08 Jul 2020 03:03:23 GMT
+recorded_with: VCR 6.0.0

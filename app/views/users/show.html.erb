@@ -29,21 +29,35 @@
       </section>
     <% end %>
   </section>
+  <section class="friends">
+    <h1>Friends</h1>
+    <% current_user.friend_list.each do |friend| %>
+      <section class="friend friend-<%= friend.id %>">
+        <h4><%= friend.first_name %> <%= friend.last_name %></h4>
+      </section>
+    <% end %>
+  </section>
   <section class="github">
     <% if current_user.github_token %>
       <h1>Github Followers</h1>
       <ul class="followers">
         <% current_user.user_followers(5).each do |follower| %>
-          <li class="follower" >
+          <li class="follower follower-<%= follower.name %>">
             <p class="name"><%= follower.name %></p>
+            <% if !current_user.is_friend?(follower) && User.is_user?(follower)  %>
+              <%= button_to 'Add as Friend',"users/#{current_user.id}/friendships?github_id=#{follower.id}", method: 'post', class: "btn btn-primary mb1 bg-teal" %>
+            <% end %>
           </li>
         <% end %>
       </ul>
       <h1>Following on Github</h1>
       <ul class="following">
         <% current_user.user_following(5).each do |followed| %>
-          <li class="followed" >
+          <li class="followed followed-<%= followed.name %>" >
             <p class="name"><%= followed.name %></p>
+            <% if User.is_user?(followed) && !current_user.is_friend?(followed) %>
+              <%= button_to 'Add as Friend', "users/#{current_user.id}/friendships?github_id=#{followed.id}", method: 'post', class: "btn btn-primary mb1 bg-teal" %>
+            <% end %>
           </li>
         <% end %>
       </ul>

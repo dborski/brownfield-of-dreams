@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/youtube/v3/playlists?id=PL4pGkk3QBW28n6QCBWcmE76Ro7ONEzlMG&key=<YOUTUBE_API_KEY>&part=snippet,contentDetails
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Wed, 08 Jul 2020 03:02:24 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3-29=":443"; ma=2592000,h3-27=":443"; ma=2592000,h3-25=":443"; ma=2592000,h3-T050=":443";
+        ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
+        ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "kind": "youtube#playlistListResponse",
+          "etag": "B8aM-4-4fnKXYj3ZmD9HmbG55bs",
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 5
+          },
+          "items": [
+            {
+              "kind": "youtube#playlist",
+              "etag": "nNNPucXwhE3BaW1naF8xUENGTnI",
+              "id": "PL4pGkk3QBW28n6QCBWcmE76Ro7ONEzlMG",
+              "snippet": {
+                "publishedAt": "2019-03-30T21:14:02Z",
+                "channelId": "UC_13RMJbxIPSOODLNXh_7EQ",
+                "title": "PINK FLOYD MUSIC PLAYLIST",
+                "description": "",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/TvChSZBKb6A/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/TvChSZBKb6A/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/TvChSZBKb6A/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/TvChSZBKb6A/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  },
+                  "maxres": {
+                    "url": "https://i.ytimg.com/vi/TvChSZBKb6A/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                  }
+                },
+                "channelTitle": "Rose Thorn",
+                "localized": {
+                  "title": "PINK FLOYD MUSIC PLAYLIST",
+                  "description": ""
+                }
+              },
+              "contentDetails": {
+                "itemCount": 131
+              }
+            }
+          ]
+        }
+  recorded_at: Wed, 08 Jul 2020 03:02:24 GMT
+recorded_with: VCR 6.0.0

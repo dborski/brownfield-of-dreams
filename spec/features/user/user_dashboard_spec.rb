@@ -25,12 +25,12 @@ RSpec.describe 'user dashboard show page', type: :feature do
       visit dashboard_path
     end
 
-    it "page has Github section" do
+    it "page has Github section", :vcr do
       expect(page).to have_css(".github")
       expect(page).to have_content("Github Repositories")
     end
 
-    it "can see the name of five of my repositories with links to their repos on github" do
+    it "can see the name of five of my repositories with links to their repos on github", :vcr do
       within(".github") do
         expect(page).to have_css(".repo", count: 5)
         within(first(".repo")) do
@@ -39,7 +39,7 @@ RSpec.describe 'user dashboard show page', type: :feature do
       end
     end
 
-    it "can see all of my bookmarked segments" do
+    it "can see all of my bookmarked segments", :vcr do
       within(".bookmarked") do
         expect(page).to have_css(".tutorial", count: 3)
         within(first(".tutorial")) do

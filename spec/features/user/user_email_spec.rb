@@ -11,7 +11,7 @@ RSpec.describe 'user dashboard show page', type: :feature do
       visit dashboard_path
     end
 
-    it "I can send an e-mail invite through the user dashboard" do
+    it "I can send an e-mail invite through the user dashboard", :vcr do
       click_link "Send an Invite"
       
       expect(current_path).to eq('/invite')
@@ -23,7 +23,7 @@ RSpec.describe 'user dashboard show page', type: :feature do
       expect(page).to have_content("Successfully sent invite!")
     end
 
-    it "Send e-mail fails if github user does not have an e-mail address" do
+    it "Send e-mail fails if github user does not have an e-mail address", :vcr do
       click_link "Send an Invite"
       
       expect(current_path).to eq(invite_path)
